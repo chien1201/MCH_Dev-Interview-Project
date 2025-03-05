@@ -1,6 +1,7 @@
 <template>
   <div class="historical-websites">
     <h2>歷年梅竹黑客松網站</h2>
+
     <div class="websites-grid">
       <div v-for="website in websites" :key="website.id" class="website-card">
         <img
@@ -20,8 +21,39 @@
   </div>
 </template>
 
+
 <script>
 // TODO: Fetch websites data from API
+
+import axios from "axios";
+
+export default{
+  data(){
+    return {
+      websites: [],
+      loading : true,
+      error : null,
+    }
+  },
+
+  methods: {
+    async fetchWebsites(website_id) {
+      try {
+        const response = await axios.get("https://mch-dev.userwei.com/api/websites");
+        this.websites = response.data;
+      } catch (err) {
+        this.error = "can't fetch website";
+      } finally {
+        this.loading = false;
+      }
+    },
+  },
+
+  mounted() {
+    this.fetchWebsites();
+  },
+};
+
 </script>
 
 <style scoped>
@@ -38,8 +70,19 @@
   color: #333;
 }
 
+.loading,
+.error {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ff0000;
+}
+
 .websites-grid {
   /* TODO: Add styles for a responsive grid layout */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-contents: center;
 }
 
 .website-card {

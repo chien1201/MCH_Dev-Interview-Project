@@ -1,22 +1,28 @@
 <template>
   <div class="introduction">
     <header class="intro-header">
-      <h2>自我介紹</h2>
-      <p>
-        簡單自我介紹+本人圖片
-      </p>
-        
-      
+      <div class="intro-content">
+      <img src="C:\Users\User\Desktop\MCH\MCH_Dev-Interview-Project\frontend\src\assets\me.jpg"  alt="my photo" class="profile-pic">
+      <div class="intro-text">
+        <h2>自我介紹</h2>
+        <p>
+          大家好！我是清大資工系大二的蔡佳倩，來自一年四季都很熱的高雄，對網頁和軟體開發有興趣，也喜歡學習新的技術跟挑戰自我，希望可以認識好強的大家！
+        </p>
+        <button class="contact"> <a href="https://www.instagram.com/imchien.12o1_/" target="_blank">我的ig</a></button>     
+      </div>
+      </div>  
     </header>
+
     <section class="about-section">
       <h3>個人資訊補充</h3>
       <ul>
-        <li>好棒棒1</li>
-        <li>好棒棒2</li>
-        <li>好棒棒3</li>
+        <li>日常嗜好：跳舞、聽音樂、看書</li>
+        <li>個性：INFJ，小慢熟但認識之後蠻活潑的</li>
+        <li>會的語言：英文、日文、韓文、德文，當然也有程式語言啦但太菜了不好說</li>
+        <li>個人目標：希望可以變得好會寫網頁</li>
       </ul>
-      
     </section>
+
   </div>
 </template>
 
@@ -24,21 +30,34 @@
 <style scoped>
 .introduction {
   padding: 40px 20px;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .intro-header {
-  background-color: #f5f5f5;
+  background-color:#dcdcdc;
   padding: 40px;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.intro-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
+.profile-pic {
+  width: 250px; 
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover; 
+  border: 3px solid #ccc;
+}
 
 .intro-text h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
 }
 
 .intro-text p {
